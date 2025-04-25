@@ -2,7 +2,6 @@ const toggles = document.querySelectorAll(".faq-toggle");
 
 toggles.forEach(toggle => {
     toggle.addEventListener("click", () => {
-        // Fecha todos os outros
         toggles.forEach(item => {
             if (item !== toggle) {
                 const otherContent = item.nextElementSibling;
@@ -13,9 +12,9 @@ toggles.forEach(toggle => {
                 otherContent.classList.remove("scale-y-100", "opacity-100");
                 setTimeout(() => {
                     otherContent.classList.add("hidden");
-                }, 300); // Espera a animação terminar
+                }, 300);
 
-                otherIcon.setAttribute("d", "M12 6v6m0 0v6m0-6h6m-6 0H6"); // Plus
+                otherIcon.setAttribute("d", "M12 6v6m0 0v6m0-6h6m-6 0H6");
                 otherIconBg.classList.remove("bg-gray-200");
                 otherIconBg.classList.add("bg-purple-500");
             }
@@ -27,7 +26,6 @@ toggles.forEach(toggle => {
         const isVisible = !content.classList.contains("hidden");
 
         if (isVisible) {
-            // Fechar
             content.classList.add("scale-y-0", "opacity-0");
             content.classList.remove("scale-y-100", "opacity-100");
             setTimeout(() => {
@@ -38,9 +36,7 @@ toggles.forEach(toggle => {
             iconBg.classList.remove("bg-gray-200");
             iconBg.classList.add("bg-purple-500");
         } else {
-            // Abrir
             content.classList.remove("hidden");
-            // Força reflow para que a transição funcione
             void content.offsetWidth;
             content.classList.remove("scale-y-0", "opacity-0");
             content.classList.add("scale-y-100", "opacity-100");
